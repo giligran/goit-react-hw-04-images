@@ -9,7 +9,6 @@ const App = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [totalPages, setTotalPages] = useState(0);
-  const [error, setError] = useState(null);
 
   useEffect(() => {
     if (searchQuery.trim() === '') {
@@ -43,7 +42,7 @@ const App = () => {
           );
         }
       } catch (error) {
-        setError(error);
+        console.log(error);
         Notify.failure(`Oops, something went wrong: ${error.message}`);
       } finally {
         setIsLoading(false);
